@@ -24,12 +24,13 @@ jobs:
        with:
          push: true
          tags: devilke/unit8:test
-     - 
+    -
+      uses: actions/checkout@v2
       name: deploy to cluster
       uses: steebchen/kubectl@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
       with:
-        args: create -f ../deployment.yaml
+        args: create -f deployment.yaml
 
           
