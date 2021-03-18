@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unit8-deployment
+spec:
+  selector:
+    matchLabels:
+      app: unit8
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: unit8
+    spec:
+      containers:
+      - name: unit8
+        image: devilke/unit8:test
+        ports:
+        - containerPort: 5000

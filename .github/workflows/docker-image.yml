@@ -30,13 +30,6 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
       with:
-        args: set image --record deployment/my-app container="devilke/unit8:test"
-     - 
-      name: verify deployment
-      uses: steebchen/kubectl@master
-      env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
-        KUBECTL_VERSION: "1.15"
-      with:
-        args: '"rollout status deployment/my-app"'
+        args: create -f deployment.yaml
+
           
