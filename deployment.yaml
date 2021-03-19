@@ -27,9 +27,13 @@ metadata:
   labels:
     app: unit8
 spec:
+  externalTrafficPolicy: Cluster
   ports:
-  - name: http
-    port: 80
+  - nodePort: 30650
+    port: 5000
+    protocol: TCP
     targetPort: 5000
   selector:
     app: unit8
+  sessionAffinity: None
+  type: LoadBalancer
